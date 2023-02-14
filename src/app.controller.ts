@@ -10,11 +10,11 @@ export class AppController {
   @Post('/pdf-to-doc')
   async pdfToDoc(@Body() body: any) {
 
-    const { name, resultName } = body
+    const { name, resultName, dir } = body
     const SrcFile = `/${name}`;
     const resultPath = `MyFolder/ ${resultName}`;
     const storageName = 'AppStorage';
-    const fileToWrite = process.cwd() + '/' + resultName;
+    const fileToWrite = `${dir}/${resultName}`;
     const pdfApi = new PdfApi(
       '31142b24-ad39-48c9-99c3-ebe1f061a8da',
       '2972ac0203e5a649ddaf7f786e332bf3',
